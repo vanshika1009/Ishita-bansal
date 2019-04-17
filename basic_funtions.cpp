@@ -81,4 +81,119 @@ int pivotedBinarySearch(int arr[], int n, int key)
     return binarySearch(arr, 0, pivot-1, key); 
       
     return binarySearch(arr, pivot+1, n-1, key); 
+}
+
+
+
+void rvereseArray(int arr[], int start, int end)
+{
+    while (start < end)
+    {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+void printArray(int arr[], int size)
+{
+   for (int i = 0; i < size; i++)
+   cout << arr[i] << " ";
+
+   cout << endl;
+}
+
+
+int binarySearch(int arr[], int l, int r, int x) 
+{ 
+    if (r >= l) { 
+        int mid = l + (r - l) / 2; 
+  
+         
+        if (arr[mid] == x) 
+            return mid; 
+  
+        
+        if (arr[mid] > x) 
+            return binarySearch(arr, l, mid - 1, x); 
+  
+         
+        return binarySearch(arr, mid + 1, r, x); 
+    } 
+  
+    
+    return -1; 
 } 
+  
+
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+
+void selectionSort(int arr[], int n)
+{
+    int i, j, min_idx;
+
+   
+    for (i = 0; i < n-1; i++)
+    {
+        
+        min_idx = i;
+        for (j = i+1; j < n; j++)
+          if (arr[j] < arr[min_idx])
+            min_idx = j;
+
+       
+        swap(&arr[min_idx], &arr[i]);
+    }
+}
+
+
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+
+
+
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+
+
+void bubbleSort(int arr[], int n)
+{
+   int i, j;
+   for (i = 0; i < n-1; i++)
+
+       
+       for (j = 0; j < n-i-1; j++)
+           if (arr[j] > arr[j+1])
+              swap(&arr[j], &arr[j+1]);
+}
+
+/* Function to print an array */
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("n");
+}
+
+
+
+
+
+
