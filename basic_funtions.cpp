@@ -440,3 +440,104 @@ void printList(struct Node *ptr)
     }
     printf("NULL\n");
 }
+
+
+class Node
+{
+    public:
+    int data;
+    Node* next;
+};
+
+
+void deleteList(Node** head_ref)
+{
+
+
+Node* current = *head_ref;
+Node* next;
+
+while (current != NULL)
+{
+    next = current->next;
+    free(current);
+    current = next;
+}
+
+
+*head_ref = NULL;
+}
+
+
+void push(Node** head_ref, int new_data)
+{
+    
+    Node* new_node = new Node();
+
+    
+    new_node->data = new_data;
+
+    
+    new_node->next = (*head_ref);
+
+    
+    (*head_ref) = new_node;
+}
+
+
+
+struct Node
+{
+    int data;
+    struct Node* next;
+    Node (int data)
+    {
+        this->data = data;
+        next = NULL;
+    }
+};
+
+struct LinkedList
+{
+    Node *head;
+    LinkedList()
+    {
+        head = NULL;
+    }
+
+    void reverse()
+    {
+        
+        Node *current = head;
+        Node *prev = NULL, *next = NULL;
+
+
+        while (current != NULL)
+        {
+            next = current->next;
+
+            current->next = prev;
+
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
+
+    void print()
+    {
+        struct Node *temp = head;
+        while (temp != NULL)
+        {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+    }
+
+    void push(int data)
+    {
+        Node *temp = new Node(data);
+        temp->next = head;
+        head = temp;
+    }
+};
