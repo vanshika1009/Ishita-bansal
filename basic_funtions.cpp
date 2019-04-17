@@ -194,6 +194,249 @@ void printArray(int arr[], int size)
 
 
 
+void insertionSort(int arr[], int n) 
+{ 
+    int i, key, j; 
+    for (i = 1; i < n; i++) { 
+        key = arr[i]; 
+        j = i - 1; 
+  
+        
+        while (j >= 0 && arr[j] > key) { 
+            arr[j + 1] = arr[j]; 
+            j = j - 1; 
+        } 
+        arr[j + 1] = key; 
+    } 
+} 
+  void printArray(int arr[], int n) 
+{ 
+    int i; 
+    for (i = 0; i < n; i++) 
+        printf("%d ", arr[i]); 
+    printf("\n"); 
+} 
 
 
 
+
+void merge(int arr[], int l, int m, int r)
+{
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 =  r - m;
+
+    
+    int L[n1], R[n2];
+
+    
+    for (i = 0; i < n1; i++)
+        L[i] = arr[l + i];
+    for (j = 0; j < n2; j++)
+        R[j] = arr[m + 1+ j];
+
+    
+    i = 0; 
+    j = 0; 
+    k = l; 
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
+        {
+            arr[k] = L[i];
+            i++;
+        }
+        else
+        {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    
+    while (i < n1)
+    {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    
+    while (j < n2)
+    {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+void mergeSort(int arr[], int l, int r)
+{
+    if (l < r)
+    {
+        
+        int m = l+(r-l)/2;
+
+        
+        mergeSort(arr, l, m);
+        mergeSort(arr, m+1, r);
+
+        merge(arr, l, m, r);
+    }
+}
+
+void printArray(int A[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", A[i]);
+    printf("\n");
+}
+
+
+
+
+class twoStacks
+{
+    int *arr;
+    int size;
+    int top1, top2;
+public:
+   twoStacks(int n)  // constructor
+   {
+       size = n;
+       arr = new int[n];
+       top1 = -1;
+       top2 = size;
+   }
+
+   void push1(int x)
+   {
+     
+       if (top1 < top2 - 1)
+       {
+           top1++;
+           arr[top1] = x;
+       }
+       else
+       {
+           cout << "Stack Overflow";
+           exit(1);
+       }
+   }
+   
+   void push2(int x)
+   {
+
+       if (top1 < top2 - 1)
+       {
+           top2--;
+           arr[top2] = x;
+       }
+       else
+       {
+           cout << "Stack Overflow";
+           exit(1);
+       }
+   }
+
+   int pop1()
+   {
+       if (top1 >= 0 )
+       {
+          int x = arr[top1];
+          top1--;
+          return x;
+       }
+       else
+       {
+           cout << "Stack UnderFlow";
+           exit(1);
+       }
+   }
+
+   int pop2()
+   {
+       if (top2 < size)
+       {
+          int x = arr[top2];
+          top2++;
+          return x;
+       }
+       else
+       {
+           cout << "Stack UnderFlow";
+           exit(1);
+       }
+   }
+};
+
+
+
+void swap(char *str1, char *str2) 
+{ 
+  char *temp = str1; 
+  str1 = str2; 
+  str2 = temp; 
+}   
+
+
+
+
+class Node
+{
+    public:
+    int data;
+    Node *next;
+};
+
+
+
+struct Node
+{
+    int data;
+    struct Node* next;
+};
+
+void printMiddle(struct Node *head)
+{
+    struct Node *slow_ptr = head;
+    struct Node *fast_ptr = head;
+
+    if (head!=NULL)
+    {
+        while (fast_ptr != NULL && fast_ptr->next != NULL)
+        {
+            fast_ptr = fast_ptr->next->next;
+            slow_ptr = slow_ptr->next;
+        }
+        printf("The middle element is [%d]\n\n", slow_ptr->data);
+    }
+}
+
+void push(struct Node** head_ref, int new_data)
+{
+    
+    struct Node* new_node =
+        (struct Node*) malloc(sizeof(struct Node));
+
+    
+    new_node->data  = new_data;
+
+   
+    new_node->next = (*head_ref);
+
+    
+    (*head_ref)    = new_node;
+}
+
+void printList(struct Node *ptr)
+{
+    while (ptr != NULL)
+    {
+        printf("%d->", ptr->data);
+        ptr = ptr->next;
+    }
+    printf("NULL\n");
+}
