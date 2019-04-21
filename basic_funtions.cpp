@@ -574,7 +574,6 @@ int main()
 } 
 
 
-int main(void)
 {
     int arr[] = { 2, 3, 4, 10, 40 };
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -586,8 +585,6 @@ int main(void)
     return 0;
 }
 
-
-int main()
 {
     int arr[] = {64, 25, 12, 22, 11};
     int n = sizeof(arr)/sizeof(arr[0]);
@@ -596,20 +593,15 @@ int main()
     printArray(arr, n);
     return 0;
 }
-
-
-int main()
 {
+
     int arr[] = { 12, 11, 13, 5, 6 };
     int n = sizeof(arr) / sizeof(arr[0]);
 
     insertionSort(arr, n);
     printArray(arr, n);
     return 0;
-}
-
-
-int main()
+}   
 {
     int arr[] = {12, 11, 13, 5, 6, 7};
     int arr_size = sizeof(arr)/sizeof(arr[0]);
@@ -623,9 +615,62 @@ int main()
     printArray(arr, arr_size);
     return 0;
 }
+{
+    twoStacks ts(5);
+    ts.push1(5);
+    ts.push2(10);
+    ts.push2(15);
+    ts.push1(11);
+    ts.push2(7);
+    cout << "Popped element from stack1 is " << ts.pop1();
+    ts.push2(40);
+    cout << "\nPopped element from stack2 is " << ts.pop2();
+    return 0;
+}
+{
+  char *str1 = "geeks";
+  char *str2 = "forgeeks";
+  swap(str1, str2);
+  printf("str1 is %s, str2 is %s", str1, str2);
+  getchar();
+  return 0;
+}
+int main()  
+{  
+    Node* head = NULL;  
+    Node* second = NULL;  
+    Node* third = NULL;  
+      
+  
+    head = new Node(); 
+    second = new Node(); 
+    third = new Node(); 
+      
+head->data = 1;  
+head->next = second;   
+                      
+       
+second->data = 2;  
+    
+second->next = third;      
+      
+third->data = 3;   
+third->next = NULL;      
+  
+return 0;  
+}
+int main()
+{
+   
+    struct Node* head = NULL;
+    int i;
 
-};
+    for (i=5; i>0; i--)
+    {
+        push(&head, i);
+        printList(head);
+        printMiddle(head);
+    }
 
-=======
->>>>>>> 11360f207159374c9a7a0a5a1c37fed0dc42ebe6
-
+    return 0;
+}
