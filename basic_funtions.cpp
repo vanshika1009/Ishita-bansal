@@ -559,7 +559,6 @@ public:
    return 0;
 };
 
-<<<<<<< HEAD
 /*functions calling*/
 
 int main()  
@@ -659,10 +658,9 @@ third->next = NULL;
   
 return 0;  
 }
-int main()
 {
    
-    struct Node* head = NULL;
+  struct Node* head = NULL;
     int i;
 
     for (i=5; i>0; i--)
@@ -674,3 +672,55 @@ int main()
 
     return 0;
 }
+{
+    Node* head = NULL;
+    push(&head, 1);
+    push(&head, 4);
+    push(&head, 1);
+    push(&head, 12);
+    push(&head, 1);
+
+    cout << "Deleting linked list";
+    deleteList(&head);
+
+    cout << "\nLinked list deleted";
+}
+{ 
+   
+    LinkedList ll; 
+    ll.push(20); 
+    ll.push(4); 
+    ll.push(15); 
+    ll.push(85); 
+  
+    cout << "Given linked list\n"; 
+    ll.print(); 
+  
+    ll.reverse(); 
+  
+    cout << "\nReversed Linked list \n"; 
+    ll.print(); 
+    return 0; 
+} 
+{
+        int arr[] = { 2, 3, 5, 4, 5, 2,
+                      4, 3, 5, 2, 4, 4, 2 };
+        int n = sizeof(arr) / sizeof(arr[0]);
+
+        cout << getOddOccurrence(arr, n);
+
+        return 0;
+} 
+{ 
+  
+  int arr1[] = {5, 6, 7, 8, 9, 10, 1, 2, 3}; 
+  int n = sizeof(arr1)/sizeof(arr1[0]); 
+  int key = 3; 
+     
+  cout << "Index of the element is : " <<  
+           pivotedBinarySearch(arr1, n, key); 
+             
+  return 0; 
+}
+
+
