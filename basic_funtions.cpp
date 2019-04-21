@@ -623,6 +623,9 @@ int main()
     printArray(arr, arr_size);
     return 0;
 }
+
+};
+
 =======
 >>>>>>> 11360f207159374c9a7a0a5a1c37fed0dc42ebe6
 
