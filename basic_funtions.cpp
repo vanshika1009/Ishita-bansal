@@ -548,8 +548,8 @@ public:
     int n1=0,n2=1,n3,i,number;
        cout<<"Enter the number of elements: ";
        cin>>number;
-       cout<<n1<<" "<<n2<<" "; //printing 0 and 1
-       for(i=2;i<number;++i) //loop starts from 2 because 0 and 1 are already printed
+       cout<<n1<<" "<<n2<<" "; 
+       for(i=2;i<number;++i) 
       {
         n3=n1+n2;
      cout<<n3<<" ";
@@ -558,6 +558,83 @@ public:
       }
    return 0;
 };
+int min(int a, int b) 
+{ return (a < b)? a: b; } 
+  
+int min(int a, int b, int c) 
+{ return min(min(a, b), c);} 
+  
+int max(int a, int b) 
+{ return (a > b)? a: b; } 
+   
+void diagonalOrder(int matrix[][COL]) 
+{ 
+     
+    for (int line=1; line<=(ROW + COL -1); line++) 
+    { 
+      
+        int start_col =  max(0, line-ROW); 
+ 
+         int count = min(line, (COL-start_col), ROW); 
+  
+        for (int j=0; j<count; j++) 
+            printf("%5d ", matrix[min(ROW, line)-j-1][start_col+j]); 
+  
+        printf("\n"); 
+    } 
+} 
+  
+void printMatrix(int matrix[ROW][COL]) 
+{ 
+    for (int i=0; i< ROW; i++) 
+    { 
+        for (int j=0; j<COL; j++) 
+            printf("%5d ", matrix[i][j]); 
+        printf("\n"); 
+    } 
+} 
+void moveToEnd(int mPlusN[], int size) 
+{ 
+   int j = size - 1; 
+   for (int i = size - 1; i >= 0; i--) 
+     if (mPlusN[i] != NA) 
+     { 
+        mPlusN[j] = mPlusN[i]; 
+        j--; 
+     } 
+} 
+  
+
+int merge(int mPlusN[], int N[], int m, int n) 
+{ 
+   int i = n; 
+   int j = 0;
+   int k = 0; 
+   while (k < (m + n)) 
+   { 
+    if ((i < (m + n) && mPlusN[i] <= N[j]) || (j == n)) 
+    { 
+        mPlusN[k] = mPlusN[i]; 
+        k++; 
+        i++; 
+    } 
+    else 
+    { 
+       mPlusN[k] = N[j]; 
+       k++; 
+       j++; 
+    } 
+   } 
+} 
+  
+void printArray(int arr[], int size) 
+{ 
+   for (int i = 0; i < size; i++) 
+   cout << arr[i] << " "; 
+  
+   cout << endl; 
+} 
+
 
 /*functions calling*/
 
@@ -720,7 +797,65 @@ return 0;
   cout << "Index of the element is : " <<  
            pivotedBinarySearch(arr1, n, key); 
              
-  return 0; 
+  return 0;
 }
+{ 
+    struct Node *root = new Node(1); 
+    root->left             = new Node(2); 
+    root->right         = new Node(3); 
+    root->left->left     = new Node(4); 
+    root->left->right = new Node(5);  
+  
+    cout << "\nPreorder traversal of binary tree is \n"; 
+    printPreorder(root); 
+  
+    cout << "\nInorder traversal of binary tree is \n"; 
+    printInorder(root);  
+  
+    cout << "\nPostorder traversal of binary tree is \n"; 
+    printPostorder(root); 
+  
+    return 0; 
+}
+{
 
+    struct tNode* root = newtNode(1);
+    root->left = newtNode(2);
+    root->right = newtNode(3);
+    root->left->left = newtNode(4);
+    root->left->right = newtNode(5);
 
+    MorrisTraversal(root);
+
+    return 0;
+}
+{
+    int M[ROW][COL] = {{1, 2, 3, 4},
+                       {5, 6, 7, 8},
+                       {9, 10, 11, 12},
+                       {13, 14, 15, 16},
+                       {17, 18, 19, 20},
+                      };
+    printf ("Given matrix is \n");
+    printMatrix(M);
+
+    printf ("\nDiagonal printing of matrix is \n");
+    diagonalOrder(M);
+    return 0;
+}
+{
+  
+   int mPlusN[] = {2, 8, NA, NA, NA, 13, NA, 15, 20};
+   int N[] = {5, 7, 9, 25};
+
+   int n = sizeof(N) / sizeof(N[0]);
+   int m = sizeof(mPlusN) / sizeof(mPlusN[0]) - n;
+
+   moveToEnd(mPlusN, m + n);
+
+   merge(mPlusN, N, m, n);
+
+   printArray(mPlusN, m+n);
+
+   return 0;
+}
