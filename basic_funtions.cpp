@@ -542,3 +542,68 @@ struct LinkedList
     }
 };
 
+/*functions calling*/
+
+int main()  
+{ 
+    int arr[] = {1, 2, 3, 4, 5, 6};  
+    printArray(arr, 6); 
+    rvereseArray(arr, 0, 5); 
+    cout << "Reversed array is" << endl;  
+    printArray(arr, 6); 
+      
+    return 0; 
+} 
+
+
+int main(void)
+{
+    int arr[] = { 2, 3, 4, 10, 40 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int x = 10;
+    int result = binarySearch(arr, 0, n - 1, x);
+    (result == -1) ? printf("Element is not present in array")
+                   : printf("Element is present at index %d",
+                            result);
+    return 0;
+}
+
+
+int main()
+{
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    selectionSort(arr, n);
+    printf("Sorted array: \n");
+    printArray(arr, n);
+    return 0;
+}
+
+
+int main()
+{
+    int arr[] = { 12, 11, 13, 5, 6 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    insertionSort(arr, n);
+    printArray(arr, n);
+
+    return 0;
+}
+
+
+int main()
+{
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    int arr_size = sizeof(arr)/sizeof(arr[0]);
+
+    printf("Given array is \n");
+    printArray(arr, arr_size);
+
+    mergeSort(arr, 0, arr_size - 1);
+
+    printf("\nSorted array is \n");
+    printArray(arr, arr_size);
+    return 0;
+}
+
