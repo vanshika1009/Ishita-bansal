@@ -540,8 +540,26 @@ struct LinkedList
         temp->next = head;
         head = temp;
     }
+	class project
+{
+public:
+    void Fibonacci_Series()
+    {
+    int n1=0,n2=1,n3,i,number;
+       cout<<"Enter the number of elements: ";
+       cin>>number;
+       cout<<n1<<" "<<n2<<" "; //printing 0 and 1
+       for(i=2;i<number;++i) //loop starts from 2 because 0 and 1 are already printed
+      {
+        n3=n1+n2;
+     cout<<n3<<" ";
+        n1=n2;
+        n2=n3;
+      }
+   return 0;
 };
 
+<<<<<<< HEAD
 /*functions calling*/
 
 int main()  
@@ -587,7 +605,6 @@ int main()
 
     insertionSort(arr, n);
     printArray(arr, n);
-
     return 0;
 }
 
@@ -606,4 +623,6 @@ int main()
     printArray(arr, arr_size);
     return 0;
 }
+=======
+>>>>>>> 11360f207159374c9a7a0a5a1c37fed0dc42ebe6
 
